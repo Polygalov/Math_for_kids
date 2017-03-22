@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Math_for_kids</string>
+    <string name="title">Реши примеры. Времени осталось: </string>
+    <string name="button">Проверить</string>
+    <string name="quest">\?</string>
+    <string name="menu_start_game">1й уровень</string>
+    <string name="menu_quick_game">2й уровень</string>
+    <string name="menu_settings_game">3й уровень</string>
+    <string name="menu_about">4й уровень</string>
+    <string name="menu_exit">Выход</string>
+    <string name="title_game_menu">Математические гонки</string>
+    <string name="timer">40</string>
+</resources>
