@@ -9,9 +9,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         >
-        <activity android:name=".MainActivity"
-            android:windowSoftInputMode="stateVisible|adjustResize"
-            >
+        <activity
+            android:name=".Level1"
+            android:windowSoftInputMode="stateVisible|adjustResize">
+
             <!-- android:theme="@android:style/Theme.NoTitleBar.Fullscreen" -->
 
             <intent-filter>
@@ -35,6 +36,12 @@
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".Records">
+        </activity>
+        <activity android:name=".Level2">
+        </activity>
+        <activity android:name=".Records2">
         </activity>
     </application>
 

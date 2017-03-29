@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Math_for_kids</string>
-    <string name="title">Реши примеры. Времени осталось: </string>
-    <string name="button">Проверить</string>
+    <string name="title">Реши примеры.\nПока не вышло время </string>
+    <string name="button">Следующий</string>
     <string name="quest">\?</string>
     <string name="menu_start_game">1й уровень</string>
     <string name="menu_quick_game">2й уровень</string>
@@ -10,4 +10,9 @@
     <string name="menu_exit">Выход</string>
     <string name="title_game_menu">Математические гонки</string>
     <string name="timer">40</string>
+    <string name="name">Ответов правильно/всего:  0/0</string>
+    <string name="score">Вы набрали 100 очков</string>
+    <string name="textview">Рекорд на этом уровне:</string>
+    <string name="buttonBack">Вернуться в меню</string>
+    <string name="Clear">Сброс рекорда</string>
 </resources>

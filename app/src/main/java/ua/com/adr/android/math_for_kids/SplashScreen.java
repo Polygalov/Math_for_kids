@@ -25,7 +25,9 @@ public class SplashScreen extends Activity {
         setContentView(R.layout.splash);
 
         final SplashScreen sPlashScreen = this;
-
+        if (getIntent().getBooleanExtra("EXIT", false)) {
+            finish();
+        }
         // Поток для ожидания событий заставки
         mSplashThread =  new Thread(){
             @Override
@@ -50,6 +52,7 @@ public class SplashScreen extends Activity {
         };
 
         mSplashThread.start();
+
     }
 
     @Override

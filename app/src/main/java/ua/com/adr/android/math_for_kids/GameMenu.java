@@ -1,11 +1,11 @@
 package ua.com.adr.android.math_for_kids;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public class GameMenu extends AppCompatActivity {
@@ -40,16 +40,27 @@ public class GameMenu extends AppCompatActivity {
         switch (v.getId()) {
             case R.id.level1:
                 Intent intent = new Intent();
-                intent.setClass(this, MainActivity.class);
+                intent.setClass(this, Level1.class);
                 startActivity(intent);
                 break;
+            case R.id.level2:
+                Intent intent2 = new Intent();
+                intent2.setClass(this, Level2.class);
+                startActivity(intent2);
+                break;
             case R.id.exit:
-                finish();
+                finishAll();
                 break;
             default:
                 break;
         }
 
+    }
+public void finishAll() {
+    finishAffinity();
+}
+    @Override
+    public void onBackPressed() {
     }
 
 }
