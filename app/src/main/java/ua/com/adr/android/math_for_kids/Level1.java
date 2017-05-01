@@ -14,19 +14,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Level1 extends AppCompatActivity  {
-    int genA, genB, genC, genD, res1, res2;
-    ArrayList<Integer> results = new ArrayList<Integer>();
-    List<TextView> spisok;
-    List<Integer> otvet;
+    int genA, genB, genAPrew, genBPrew;
+
     private Button mNextButton;
     private TextView mQuestionTextView;
+    private Controller mController;
 
-    final CounterClass count = new CounterClass(20000, 1000);
+    final CounterClass count = new CounterClass(70000, 1000);
     EditText etNum;
     TextView tvResult;
     TextView result, timer;
     private int answer = 0;
-    int num = 0;
+    int num = -100;
     private int mCurrentIndex = 0;
     private int rightAnswers = 0;
 
@@ -37,12 +36,23 @@ public class Level1 extends AppCompatActivity  {
 
         genA = rnd();
         genB = rnd();
-        if (minusPlus()<4) {
+        System.out.println("A1 = " + genA + " B1 = " + genB);
+        if (genA == genAPrew && genB == genBPrew) {
+            do {
+                genA = rnd();
+                genB = rnd();
 
+            }
+            while ((genA != genAPrew) || (genB != genBPrew));
+        }
+        int znak = minusPlus();
+        System.out.println("znak = " + znak);
+        if (znak < 4) {
+            System.out.println("A2 = " + genA + " B2 = " + genB);
             tvResult.setText(genA + "+" + genB + "=");
             answer = genA + genB;
-        }
-        else if (minusPlus()>=4){
+        } else if (znak >= 4) {
+            System.out.println("A2 = " + genA + " B2 = " + genB);
             if (genA < genB) {
                 int tmp = genA;
                 genA = genB;
@@ -52,6 +62,10 @@ public class Level1 extends AppCompatActivity  {
             tvResult.setText(genA + "-" + genB + " = ");
             answer = genA - genB;
         }
+        genAPrew = genA;
+        genBPrew = genB;
+        genA = 0;
+        genB = 0;
     }
 
     @Override
@@ -64,7 +78,7 @@ public class Level1 extends AppCompatActivity  {
         timer = (TextView) findViewById(R.id.timer);
         result = (TextView) findViewById(R.id.result);
 
-
+        mController = new Controller(etNum);
         genA = rnd();
         genB = rnd();
 
@@ -124,5 +138,7 @@ public class Level1 extends AppCompatActivity  {
         startActivity(i);
     }
 
-
+    public void buttonClick(View view) {
+        mController.buttonClickAll(view);
+    }
 }

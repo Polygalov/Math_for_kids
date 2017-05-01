@@ -14,21 +14,49 @@ public class Records2 extends AppCompatActivity implements View.OnClickListener 
     SharedPreferences sPref;
     final String SAVED_SCORE = "saved_score";
     Button btnBack, btnClear;
-    int scores;
-    int savedScore;
+    int scores, totalAnswer;
+    int savedScore, num;
     TextView hiscore, total;
+    String word;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_records);
+        setContentView(R.layout.activity_records2);
         total = (TextView) findViewById(R.id.textView33);
         hiscore = (TextView) findViewById(R.id.hiscore);
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             scores = bundle.getInt("Score2");
-            total.setText("ПОЗДРАВЛЯЕМ!" + "\n" +"Вы набрали" + "\n" + scores*10 + " очков");
-            total.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30);
+            totalAnswer = bundle.getInt("total");
+            if (totalAnswer == 0) {
+                totalAnswer = 1;
+            }
+            int balls = scores * 100 / totalAnswer;
+            if (totalAnswer < 5) {
+                balls = balls / 2;
+            }
+            if (totalAnswer >= 5 && totalAnswer < 8) {
+                balls = balls * 2 / 3;
+            }
+            if (totalAnswer >= 8 && totalAnswer < 10) {
+                balls = balls * 3 / 4;
+            }
+            if (balls < 50) {
+                num = 2;
+                word = "Неудовлетворительно";
+            } else if (balls >= 50 && balls <= 70) {
+                num = 3;
+                word = "Удовлетворительно";
+            } else if (balls > 70 && balls <= 90) {
+                num = 4;
+                word = "Хорошо";
+            } else if (balls > 90) {
+                num = 5;
+                word = "Отлично";
+            }
+            total.setText("ПОЗДРАВЛЯЕМ!" + "\n" + "Вы набрали" + "\n" + scores * 10 + " очков" + "\n" + "Ваша оценка - " + num + " (" + word + ")");
+            total.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
         }
         sPref = getPreferences(MODE_PRIVATE);
         String testText = sPref.getString(SAVED_SCORE, "");
