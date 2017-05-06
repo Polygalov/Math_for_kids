@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
@@ -51,36 +50,36 @@
         android:layout_height="wrap_content"
         android:layout_columnSpan="4">
 
-    <TextView
-        android:id="@+id/prim1"
-        android:layout_gravity="left|center_vertical"
-        android:text="1 + 1 ="
-        android:textColor="?attr/actionModeSplitBackground"
-        android:textSize="70sp"
-        android:gravity="bottom|center_horizontal"
-        android:textStyle="normal|bold"
+        <TextView
+            android:id="@+id/prim1"
+            android:layout_gravity="left|center_vertical"
+            android:text="1 x 1 ="
+            android:textColor="?attr/actionModeSplitBackground"
+            android:textSize="70sp"
+            android:gravity="bottom|center_horizontal"
+            android:textStyle="normal|bold"
 
-        android:layout_marginLeft="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-    <EditText
-        android:id="@+id/answer1"
-        android:layout_gravity="left"
-        android:hint="\?"
-        android:inputType="number"
+        <EditText
+            android:id="@+id/answer1"
+            android:layout_gravity="left"
+            android:hint="\?"
+            android:inputType="number"
 
-        android:maxLength="2"
-        android:text=""
-        android:textColor="@android:color/holo_green_dark"
-        android:textSize="70sp"
-        android:textStyle="normal|bold"
-        android:gravity="left"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:clickable="false"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+            android:maxLength="2"
+            android:text=""
+            android:textColor="@android:color/holo_green_dark"
+            android:textSize="70sp"
+            android:textStyle="normal|bold"
+            android:gravity="left"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:clickable="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 
@@ -336,3 +335,4 @@
     </LinearLayout>
 
 </GridLayout>
+

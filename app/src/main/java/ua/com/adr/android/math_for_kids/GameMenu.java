@@ -1,10 +1,9 @@
 package ua.com.adr.android.math_for_kids;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
@@ -47,6 +46,16 @@ public class GameMenu extends AppCompatActivity {
                 Intent intent2 = new Intent();
                 intent2.setClass(this, Level2.class);
                 startActivity(intent2);
+                break;
+            case R.id.level3:
+                Intent intent3 = new Intent();
+                intent3.setClass(this, Level3.class);
+                startActivity(intent3);
+                break;
+            case R.id.level4:
+                Intent intent4 = new Intent();
+                intent4.setClass(this, Level4.class);
+                startActivity(intent4);
                 break;
             case R.id.exit:
                 finishAll();

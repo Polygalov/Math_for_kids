@@ -2,16 +2,13 @@ package ua.com.adr.android.math_for_kids;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Level2 extends AppCompatActivity  {
     int genA, genB, genAPrew = 0, genBPrew = 0;
@@ -25,7 +22,7 @@ public class Level2 extends AppCompatActivity  {
     TextView tvResult, tvSum;
     TextView result, timer;
     private int answer = 0;
-    int num = 0;
+    int num = -100;
     private int mCurrentIndex = 0;
     private int rightAnswers = 0;
 
@@ -140,4 +137,10 @@ public class Level2 extends AppCompatActivity  {
         mController.buttonClickAll(view);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        count.cancel();
+        finish();
+    }
 }

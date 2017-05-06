@@ -2,15 +2,16 @@ package ua.com.adr.android.math_for_kids;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class Level1 extends AppCompatActivity  {
+
+public class Level3 extends AppCompatActivity {
     int genA, genB, genAPrew, genBPrew;
 
     private Button mNextButton;
@@ -28,12 +29,12 @@ public class Level1 extends AppCompatActivity  {
 
     private void updateQuestion(int mCurrentIndex) {
 
-        result.setText("Ответов правильно/всего:  "+ rightAnswers + "/" + mCurrentIndex);
+        result.setText("Ответов правильно/всего:  " + rightAnswers + "/" + mCurrentIndex);
         etNum.setText("");
 
         genA = rnd();
         genB = rnd();
-        System.out.println("A1 = " + genA + " B1 = " + genB);
+
         if (genA == genAPrew && genB == genBPrew) {
             do {
                 genA = rnd();
@@ -42,23 +43,12 @@ public class Level1 extends AppCompatActivity  {
             }
             while ((genA != genAPrew) || (genB != genBPrew));
         }
-        int znak = minusPlus();
-        System.out.println("znak = " + znak);
-        if (znak < 4) {
-            System.out.println("A2 = " + genA + " B2 = " + genB);
-            tvResult.setText(genA + "+" + genB + "=");
-            answer = genA + genB;
-        } else if (znak >= 4) {
-            System.out.println("A2 = " + genA + " B2 = " + genB);
-            if (genA < genB) {
-                int tmp = genA;
-                genA = genB;
-                genB = tmp;
-            }
 
-            tvResult.setText(genA + "-" + genB + " = ");
-            answer = genA - genB;
-        }
+
+        tvResult.setText(genA + "x" + genB + "=");
+        answer = genA * genB;
+
+
         genAPrew = genA;
         genBPrew = genB;
         genA = 0;
@@ -68,7 +58,7 @@ public class Level1 extends AppCompatActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_level1);
+        setContentView(R.layout.activity_level3);
 
         etNum = (EditText) findViewById(R.id.answer1);
         tvResult = (TextView) findViewById(R.id.prim1);
@@ -79,8 +69,8 @@ public class Level1 extends AppCompatActivity  {
         genA = rnd();
         genB = rnd();
 
-        tvResult.setText(genA + "+" + genB + "=");
-        answer = genA + genB;
+        tvResult.setText(genA + "x" + genB + "=");
+        answer = genA * genB;
 
         mNextButton = (Button) findViewById(R.id.next_button);
         mNextButton.setOnClickListener(new View.OnClickListener() {
@@ -102,11 +92,9 @@ public class Level1 extends AppCompatActivity  {
 
 
     public int rnd() {
-       return (int)(Math.random() *10)+1;
+        return (int) (Math.random() * 9) + 2;
     }
-    public int minusPlus() {
-        return (int)(Math.random() *10);
-    }
+
 
     public class CounterClass extends CountDownTimer {
 
@@ -127,9 +115,10 @@ public class Level1 extends AppCompatActivity  {
         }
 
     }
+
     public void calculate() {
 
-        Intent i = new Intent(Level1.this, Records.class);
+        Intent i = new Intent(Level3.this, Records3.class);
 
         i.putExtra("Score", rightAnswers);
         i.putExtra("total", mCurrentIndex);
@@ -140,7 +129,6 @@ public class Level1 extends AppCompatActivity  {
         mController.buttonClickAll(view);
     }
 
-
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -148,3 +136,4 @@ public class Level1 extends AppCompatActivity  {
         finish();
     }
 }
+
